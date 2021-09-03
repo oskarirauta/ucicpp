@@ -1,0 +1,35 @@
+config app globals
+	option enabled '1'
+	option hello 'world'
+	list lista 'opt1'
+	list lista 'opt2'
+	list lista 'opt3'
+
+#unnamed dictionary member
+config test
+	option opt1 '1'
+	option opt2 '2'
+
+config interface 'wan'
+	option ipaddr 192.168.8.1
+	option netmask 255.255.255.0
+	option enabled 1
+	list methods 'ifup wan'
+	list methods 'ifdown wan; sleep 1; ifup wan'
+	list methods 'reboot'
+
+config interface 'lan'
+	option ipaddr '192.168.0.1'
+	option netmask '255.255.255.0'
+	list methods 'reboot'
+
+config route 'route1'
+	option opt1 '1'
+	option opt2 '2'
+	option opt3 'word'
+
+#unnamed array member
+config route
+	option opt1 '3'
+	option opt2 '4'
+	option opt3 'another word'
