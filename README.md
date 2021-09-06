@@ -1,14 +1,18 @@
 # ucicpp
 OpenWRT UCI config file json parser
 
-This is c++ tool to parse uci config files and store their contents in a more convenient json object. I decided to use my favourite json library for c++, which is jsoncpp- so this depends on it. This is not completely automatic, when loading a configuration, you need to know what you are looking for and how to present it- so this is not a common reader of uci files, this is a reader for your app where you know the structure/design of your application's configuration. It is not perfect, with wrongly constructed config file, you will end up in troubles (arrays in place of dictionaries and so on). Also, this does not support feature boolean with "true" or "yes" as value. Value must be 1. It identifies numbers without decimal points and interprets them correctly and produces a valid json. Json::Value is very easy to read. Section titles are stored under variable "\_section\_title\_".
+This is c++ tool to parse uci config files and store their contents in a more convenient json object (IMHO). I decided to use my favourite json library for c++, which is jsoncpp- so this depends on it. This does not support feature boolean with "true" or "yes" as value. Value must be 1. It identifies numbers without decimal points and interprets them correctly and produces a valid json. Json::Value is very easy to read. Section titles are stored under variable "_\_section\_title\__" and config file under "_\_uci\_package\__".
 
 ### example
-Example application and configuration file is provided. jsoncpp, is something that you need to install on your own.
+Example application and configuration file is provided.
+
+### jsoncpp dependency
+Get it from https://github.com/open-source-parsers/jsoncpp
 
 ### sample output
 ```
 {
+	"_uci_package_" : "conf",
 	"app" : 
 	{
 		"_section_title_" : "globals",
@@ -21,7 +25,7 @@ Example application and configuration file is provided. jsoncpp, is something th
 			"opt3"
 		]
 	},
-	"interfaces" : 
+	"interface" : 
 	[
 		{
 			"_section_title_" : "lan",
@@ -45,7 +49,7 @@ Example application and configuration file is provided. jsoncpp, is something th
 			"netmask" : "255.255.255.0"
 		}
 	],
-	"routes" : 
+	"route" : 
 	[
 		{
 			"_section_title_" : "cfg06c8b4",
@@ -60,7 +64,7 @@ Example application and configuration file is provided. jsoncpp, is something th
 			"opt3" : "word"
 		}
 	],
-	"testing" : 
+	"test" : 
 	{
 		"_section_title_" : "cfg026865",
 		"opt1" : 1,

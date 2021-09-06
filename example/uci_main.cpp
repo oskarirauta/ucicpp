@@ -12,14 +12,7 @@ static const bool nice = true;
 int main() {
 
 	Json::Value root;
-	int ret = common::uci::load(config_file, root,
-		{
-			{ "app", "app" },
-			{ "testing", "test" }
-		}, {
-			{ "interfaces", "interface" },
-			{ "routes", "route" }
-		});
+	int ret = common::uci::load(config_file, root);
 
 	if ( ret != 0 ) {
 

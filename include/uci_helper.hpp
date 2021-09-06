@@ -8,9 +8,7 @@ namespace common {
 
 	namespace uci {
 
-		const int load(const std::string filename, Json::Value &root,
-			const std::map<std::string, std::string> dictionaries,
-			const std::map<std::string, std::string> arrays);
+		const int load(const std::string filename, Json::Value &root);
 
 	}
 }
